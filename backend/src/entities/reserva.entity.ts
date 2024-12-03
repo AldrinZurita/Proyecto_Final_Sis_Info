@@ -23,4 +23,7 @@ export class Reserva {
 
   @Column({ type: 'time' })
   hora_fin: string;
+
+  @Column({ length: 50, default: 'pendiente' })
+  estado: string;
 }

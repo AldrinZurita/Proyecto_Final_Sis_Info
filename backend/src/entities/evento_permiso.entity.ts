@@ -20,4 +20,7 @@ export class EventoPermiso {
 
   @Column({ type: 'blob' })
   documento: Buffer;
+
+  @Column({ default: false})
+  entregado: boolean;
 }

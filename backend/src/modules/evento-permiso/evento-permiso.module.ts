@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { EventoPermiso } from '../../entities/evento_permiso.entity';
+import { EventoPermiso } from 'src/entities/evento_permiso.entity';
 import { EventoPermisoService } from './evento-permiso.service';
 import { EventoPermisoController } from './evento-permiso.controller';
 
@@ -9,4 +9,4 @@ import { EventoPermisoController } from './evento-permiso.controller';
   providers: [EventoPermisoService],
   controllers: [EventoPermisoController],
 })
-export class EventoPermisoModule {}
+export class EventosPermisosModule {}
