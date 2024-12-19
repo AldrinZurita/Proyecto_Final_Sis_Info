@@ -59,48 +59,52 @@
 
   .highlights {
     padding: 4rem 2rem;
-    background-color: #f4f4f4;
+    background-color: #000000; /* Fondo negro */
     text-align: center;
 
     .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: #03aa80; /* Verde */
     }
 
     .highlights-list {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
 
-      .highlight-card {
-        padding: 2rem;
-        border-radius: 10px;
-        background-color: #fff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
+        .highlight-card {
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: #1a1a1a; /* Negro más claro para destacar */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
 
-        &:hover {
-          transform: translateY(-10px);
+            &:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 4px 15px rgba(3, 170, 128, 0.7); /* Efecto verde al elevarse */
+            }
+
+            img {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 1rem;
+                filter: grayscale(50%); /* Opcional: agrega un efecto en las imágenes */
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                color: #03aa80; /* Verde */
+            }
+
+            p {
+                font-size: 1rem;
+                color: #ffffff; /* Texto blanco */
+            }
         }
-
-        img {
-          width: 80px;
-          height: 80px;
-          margin-bottom: 1rem;
-        }
-
-        h3 {
-          font-size: 1.5rem;
-          color: #005f47;
-        }
-
-        p {
-          font-size: 1rem;
-          color: #333;
-        }
-      }
     }
-  }
+}
+
 
   .gallery {
     padding: 4rem 2rem;
@@ -176,9 +180,12 @@
 }
 
 .carousel-item img {
-  width: 100%;
-  border-radius: 10px;
+  width: 100%; /* Ajusta al ancho del contenedor */
+  height: 300px; /* Altura fija */
+  object-fit: cover; /* Recorta las imágenes para ajustarlas al contenedor sin deformarlas */
+  border-radius: 10px; /* Mantiene bordes redondeados */
 }
+
 
 button.prev,
 button.next {

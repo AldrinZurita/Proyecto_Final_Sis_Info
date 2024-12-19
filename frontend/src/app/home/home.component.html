@@ -14,19 +14,6 @@
     </div>
   </div>
 
-  <!-- Sección de características -->
-  <section id="highlights" class="highlights">
-    <h2 class="section-title">¿Qué ofrecemos?</h2>
-    <div class="highlights-list">
-      <div *ngFor="let item of highlights" class="highlight-card">
-        <img [src]="item.icon" [alt]="item.title" />
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.description }}</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Galería de imágenes -->
   <section id="gallery" class="gallery">
     <h2 class="section-title">Espacios Destacados</h2>
     <div class="carousel-container">
@@ -39,4 +26,17 @@
       <button class="next" (click)="nextSlide()">&#10095;</button>
     </div>
   </section>
+
+  <!-- Sección de características -->
+  <section id="highlights" class="highlights">
+    <h2 class="section-title">¿Qué ofrecemos?</h2>
+    <div class="highlights-list">
+      <div *ngFor="let item of highlights" class="highlight-card">
+        <img [src]="item.icon" [alt]="item.title" />
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+  </section>
+
 </section>

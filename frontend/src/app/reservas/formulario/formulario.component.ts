@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { EspacioPublicoService } from '../../services/espacios-publicos.service';
 import { ReservaService } from '../../services/reserva.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -26,7 +27,7 @@ export class FormularioComponent implements OnInit {
   // Nueva propiedad para controlar la visibilidad del mensaje de solicitud
   mostrarMensaje: boolean = false;
 
-  constructor(private espacioService: EspacioPublicoService, private reservaService: ReservaService) {}
+  constructor(private espacioService: EspacioPublicoService, private reservaService: ReservaService, private router: Router) {}
 
   ngOnInit(): void {
     this.espacio = this.espacioService.getEspacioSeleccionado();
@@ -64,6 +65,7 @@ export class FormularioComponent implements OnInit {
       // Ocultar el mensaje después de 3 segundos
       setTimeout(() => {
         this.mostrarMensaje = false;
+        this.router.navigate(['/calendario']);
       }, 3000); // 3000 milisegundos = 3 segundos
 
     } catch (error: any) {

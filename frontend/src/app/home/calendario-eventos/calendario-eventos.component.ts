@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { ReservaService } from '../../services/reserva.service';
+import { RouterLink } from '@angular/router';
+import { CalendarOptions } from '@fullcalendar/core';
 
 @Component({
   selector: 'app-calendario-eventos',
   standalone: true,
-  imports: [FullCalendarModule],
+  imports: [FullCalendarModule, RouterLink],
   templateUrl: './calendario-eventos.component.html',
   styleUrls: ['./calendario-eventos.component.scss']
 })
-export class CalendarioEventosComponent {
-  calendarOptions = {
+export class CalendarioEventosComponent implements OnInit {
+  calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
     initialView: 'dayGridMonth',
     editable: true,
@@ -22,22 +25,17 @@ export class CalendarioEventosComponent {
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
-    events: [
-      {
-        title: 'Reserva Plaza Principal',
-        start: '2024-06-15T10:00:00',
-        end: '2024-06-15T12:00:00'
-      },
-      {
-        title: 'Cancha Fútbol - Área Deportiva',
-        start: '2024-06-16T14:00:00',
-        end: '2024-06-16T16:00:00'
-      },
-      {
-        title: 'Evento Cultural - Auditorio',
-        start: '2024-06-18T18:00:00',
-        end: '2024-06-18T20:00:00'
-      }
-    ]
+    events: [] as { title: string; start: string; end?: string }[] // Define el tipo correctamente
   };
+
+  constructor(private reservaService: ReservaService) {}
+
+  async ngOnInit() {
+    try {
+      const reservas = await this.reservaService.getReserva();
+      this.calendarOptions.events = reservas; // Actualiza los eventos del calendario
+    } catch (error) {
+      console.error('Error al cargar las reservas:', error);
+    }
+  }
 }

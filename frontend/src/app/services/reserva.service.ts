@@ -6,6 +6,7 @@ import { Injectable } from "@angular/core";
   })
 export class ReservaService {
     private readonly baseUrl = '/reservas';
+    reservas: any[]=[];
 
     constructor(private axiosService: AxiosService) {}
 
@@ -18,4 +19,20 @@ export class ReservaService {
             throw error;
         }
     }
+
+    async getReserva() {
+        try {
+            const response = await this.axiosService.getAxiosInstance().get(this.baseUrl);
+            this.reservas = response.data.map((reserva: any) => ({
+                title: `Reserva ${reserva.id}`,
+                start: reserva.fecha + 'T' + reserva.hora_inicio,
+                end: reserva.fecha + 'T' + reserva.hora_fin
+            }));
+            return this.reservas;
+        } catch (error: any) {
+            console.log('Error al obtener información de la reserva');
+            throw error;
+        }
+    }
+
 }

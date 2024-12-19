@@ -1,32 +1,32 @@
 .espacios-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .espacio {
-    width: calc(33.33% - 20px);
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .espacio img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-  
-  button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #007b5a;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  button:hover {
-    background-color: #007b5a;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.espacio {
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.espacio img {
+  width: 100%; /* Mantener la imagen ajustada al ancho del contenedor */
+  height: 200px; /* Altura fija */
+  object-fit: cover; /* Recortar la imagen para ajustarla al tamaño sin deformarla */
+  border-radius: 8px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #007b5a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #006947;
+}
